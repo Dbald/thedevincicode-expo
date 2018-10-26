@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "thedevincicode-expo",
-    "description": "A very interesting project.",
+    "name": "The Devinci Code",
+    "description": "Come get your weekly dose of positivity and laughs!",
     "slug": "thedevincicode-expo",
     "privacy": "public",
     "sdkVersion": "30.0.0",
@@ -11,8 +11,7 @@
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

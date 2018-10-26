@@ -4,8 +4,9 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import PodcastScreen from '../screens/PodcastScreen';
+import VideoScreen from '../screens/VideoScreen';
+import InquireScreen from '../screens/InquireScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -17,44 +18,68 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+        Platform.OS === 'android'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'md-home'
       }
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const PodcastStack = createStackNavigator({
+  Podcast: PodcastScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+PodcastStack.navigationOptions = {
+  tabBarLabel: 'Podcast',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'android' ? `ios-radio${focused ? '' : '-outline'}` : 'md-radio'}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const VideoStack = createStackNavigator({
+  Videos: VideoScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+VideoStack.navigationOptions = {
+  tabBarLabel: 'Videos',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name={Platform.OS === 'android' ? `ios-film${focused ? '' : '-outline'}` : 'md-film'}
+    />
+  ),
+};
+
+const InquireStack = createStackNavigator({
+  Inquire: InquireScreen,
+});
+
+InquireStack.navigationOptions = {
+  tabBarLabel: 'Inquire',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      color='black'
+      name={Platform.OS === 'android' ? `ios-mail${focused ? '' : '-outline'}` : 'md-mail'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  PodcastStack,
+  VideoStack,
+  InquireStack,
+},{
+  tabBarOptions: {
+    inactiveTintColor: 'black',
+    inactiveBackgroundColor: '#fff952',
+    TabBarIcon: {
+      activeTintColor: 'black',
+    }
+  }
 });
